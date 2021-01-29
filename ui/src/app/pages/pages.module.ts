@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MovieResultsComponent } from './movie-results/movie-results.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { HomeComponent } from './home/home.component';
 
 // Pages
+import { HomeComponent } from './home/home.component';
+import { MovieResultsComponent } from './movie-results/movie-results.component';
 
 @NgModule({
   declarations: [
@@ -12,11 +13,11 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
   ],
   imports: [
+    CommonModule,
     SharedModule,
     RouterModule
   ],
   providers: [
-
   ],
 })
 export class PagesModule { }
