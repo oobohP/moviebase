@@ -1,0 +1,11 @@
+<div class="ui segment search">
+  <div class="field">
+    <form [formGroup]="searchForm" class="ui form">
+      <input
+        type="text"
+        (keyup.enter)="onSubmit()"
+        formControlName="searchQuery"
+        placeholder="Search for a movie or tv show">
+    </form>
+  </div>
+</div>
