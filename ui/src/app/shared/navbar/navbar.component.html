@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
-  <mat-icon class="material-icons-outlined">movie</mat-icon>
-  <span>Moviebase</span>
+
+  <mat-icon routerLink="/" class="material-icons-outlined">movie</mat-icon>
+  <span routerLink="/">Moviebase</span>
+
   <span class="nav-spacer"></span>
+
   <button mat-mini-fab color="primary" class="mat-elevation-z0" (click)="onSearchClick()">
     <mat-icon *ngIf="!showSearch">search</mat-icon>
     <mat-icon *ngIf="showSearch">close</mat-icon>

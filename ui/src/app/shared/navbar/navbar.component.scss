@@ -7,3 +7,13 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+// Removes focus outline from vanilla html5
+mat-icon, span:focus {
+  outline: none;
+  border: 0;
+}
+
+mat-icon, span:hover {
+  cursor: pointer;
+}

@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Pages
 import { MovieResultsComponent } from './pages/movie-results/movie-results.component';
-
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'search',
     component: MovieResultsComponent
   },
   {
