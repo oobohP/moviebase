@@ -24,6 +24,6 @@ export class SearchBarComponent {
 
   // Routes to search results page and sends form value as query
   onSubmit() {
-    this.router.navigate(['/search', this.searchForm.value])
+    this.router.navigate(['search', this.searchForm.value])
   }
 }

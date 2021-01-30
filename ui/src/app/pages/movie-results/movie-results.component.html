@@ -1,26 +1,42 @@
 <div class="ui container">
   <div class="ui grid">
-    <div class="middle aligned sixteen wide mobile eight wide tablet eight wide computer column">
+    <div
+      class="middle aligned sixteen wide mobile eight wide tablet eight wide computer column"
+    >
       <div class="ui large breadcrumb">
         <a class="section" routerLink="/home" routerLinkActive="active">
           <span>Home</span>
         </a>
         <i class="right angle icon divider"></i>
         <div class="section">
-            <i class="search icon"></i>
-            {{ total_results }}
-            <span>search results for </span>
-            <span class="ui purple header"> {{ query }}</span>
+          <i class="search icon"></i>
+          {{ total_results }}
+          <span>search results for </span>
+          <span class="ui purple header"> {{ query }}</span>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-<div class="ui link four doubling cards">
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="ui link four doubling cards" *ngIf="!loading">
   <!-- Add dialog when user lcicks on certain card -->
   <div class="ui raised fluid card" *ngFor="let movie of movies">
     <div class="image">
-      <img *ngIf="movie.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-      <img *ngIf="!movie.poster_path" class="ui middle aligned tiny image" src="https://placehold.it/500x740">
+      <img
+        *ngIf="movie.poster_path"
+        class="ui middle aligned tiny image"
+        src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+      />
+      <img
+        *ngIf="!movie.poster_path"
+        class="ui middle aligned tiny image"
+        src="https://placehold.it/500x740"
+      />
     </div>
     <div class="content">
       <div class="header">
@@ -28,8 +44,8 @@
       </div>
 
       <div class="description">
-        <span >Popularity: {{ movie.popularity  | number : '1.0-1' }} </span>
-        <br>
+        <span>Popularity: {{ movie.popularity | number: "1.0-1" }} </span>
+        <br />
         <span>Vote count: {{ movie.vote_count }}</span>
       </div>
     </div>
@@ -39,9 +55,9 @@
           <i class="star icon"></i>
           {{ movie.vote_average }}
         </h3>
-
       </span>
       {{ movie.release_date }}
     </div>
   </div>
 </div>
+

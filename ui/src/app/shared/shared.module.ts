@@ -5,11 +5,13 @@ import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchBarComponent } from './search/search-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     MaterialModule,
     NavbarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SpinnerComponent
   ],
 })
 export class SharedModule { }

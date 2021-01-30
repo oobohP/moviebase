@@ -3,7 +3,7 @@
     <form [formGroup]="searchForm" class="ui form">
       <input
         type="text"
-        (keyup.enter)="onSubmit()"
+        (keydown.enter)="onSubmit()"
         formControlName="searchQuery"
         placeholder="Search for a movie or tv show">
     </form>

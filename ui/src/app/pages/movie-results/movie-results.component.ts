@@ -30,8 +30,8 @@ export class MovieResultsComponent implements OnInit {
   query: string;
   movies: Movie[];
   page: number = 1;
+  loading: boolean;
   total_results: number;
-
 
   constructor(
     private searchService: SearchService,
@@ -54,11 +54,13 @@ export class MovieResultsComponent implements OnInit {
 
   // searchMovies movies based on query and page
   searchMovies(query: string, page: number) {
+    this.loading = true;
+
     this.searchService.searchMovies(query, page)
       .subscribe(response => {
         this.movies = response.results;
         this.total_results = response.total_results
-        console.log(response);
+        this.loading = false;
       })
   }
 
