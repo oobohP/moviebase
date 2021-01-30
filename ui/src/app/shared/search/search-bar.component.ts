@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent {
 
   searchForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder) {
+      private fb: FormBuilder,
+      private router: Router
+    ) {
 
       // Initiating the form
     this.searchForm = this.fb.group({
@@ -19,10 +22,8 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
-
+  // Routes to search results page and sends form value as query
   onSubmit() {
-    console.log(this.searchForm.value);
+    this.router.navigate(['/search', this.searchForm.value])
   }
 }

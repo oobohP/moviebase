@@ -9,8 +9,8 @@ import { MovieResultsComponent } from './movie-results/movie-results.component';
 
 @NgModule({
   declarations: [
-    MovieResultsComponent,
     HomeComponent,
+    MovieResultsComponent,
   ],
   imports: [
     CommonModule,
