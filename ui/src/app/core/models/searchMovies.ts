@@ -1,5 +1,5 @@
-import { Results } from './popularMovies';
+import { PopularMovies } from './popularMovies';
 
-export interface SearchResults extends Results{
+export interface SearchResults extends PopularMovies{
   page: number;
 }
