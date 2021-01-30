@@ -28,8 +28,10 @@ export class MovieResultsComponent implements OnInit {
 
   // States, Query, Navigation, and Movies
   query: string;
-  page: number = 1;
   movies: Movie[];
+  page: number = 1;
+  total_results: number;
+
 
   constructor(
     private searchService: SearchService,
@@ -55,6 +57,8 @@ export class MovieResultsComponent implements OnInit {
     this.searchService.searchMovies(query, page)
       .subscribe(response => {
         this.movies = response.results;
+        this.total_results = response.total_results
+        console.log(response);
       })
   }
 
