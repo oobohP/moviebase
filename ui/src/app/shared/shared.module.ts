@@ -6,12 +6,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchBarComponent } from './search/search-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SearchBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MaterialModule,
     NavbarComponent,
     SearchBarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DetailsComponent
   ],
 })
 export class SharedModule { }
