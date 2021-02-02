@@ -21,11 +21,11 @@ export class DetailsComponent implements OnInit {
     this.getDetails();
   }
 
+  // getDetails gets details for movies that will be loaded in the details dialog
   getDetails() {
     this.searchService.searchDetails(this.data)
     .subscribe(response => {
       this.movie = response;
-      console.log(response);
     })
   }
 
