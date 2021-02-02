@@ -25,7 +25,7 @@
 
 <div class="ui link four doubling cards" *ngIf="!loading">
   <!-- Add dialog when user lcicks on certain card -->
-  <div class="ui raised fluid card" *ngFor="let movie of movies">
+  <div class="ui raised fluid card" *ngFor="let movie of movies" (click)="showDetails(movie)">
     <div class="image">
       <img
         *ngIf="movie.poster_path"

@@ -1,7 +1,10 @@
+import { DetailsComponent } from './../../shared/details/details.component';
 import { Movie } from './../../core/models/popularMovies';
 import { SearchService } from './../../core/services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { NoopScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-movie-results',
@@ -12,8 +15,6 @@ export class MovieResultsComponent implements OnInit {
 
   /*
   TODO:
-    receive data from search component via routing, have page navigators that query api for each page with QUERY & PAGE
-    loading spinner
 
     Intended user navigation will be:
     User hits home via root domain, home page shows about infographic and carousel component cool 3d whoosh
@@ -34,8 +35,9 @@ export class MovieResultsComponent implements OnInit {
   total_results: number;
 
   constructor(
-    private searchService: SearchService,
-    private route: ActivatedRoute
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
+    private searchService: SearchService
   ) { }
 
   ngOnInit(): void {
@@ -64,4 +66,12 @@ export class MovieResultsComponent implements OnInit {
       })
   }
 
+  // showDetails opens a material dialog showing details of the movie
+  showDetails(movie: Movie) {
+    this.dialog.open(DetailsComponent, {
+      data: movie.id,
+      disableClose: false,
+      scrollStrategy: new NoopScrollStrategy
+    })
+  }
 }

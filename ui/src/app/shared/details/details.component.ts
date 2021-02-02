@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { MovieDetail } from './../../core/models/movieDetail';
+import { SearchService } from './../../core/services/search.service';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  movie: MovieDetail;
+
+  constructor(
+    public dialogRef: MatDialogRef<DetailsComponent>,
+    private searchService: SearchService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: number) { }
 
   ngOnInit(): void {
+    this.getDetails();
+  }
+
+  getDetails() {
+    this.searchService.searchDetails(this.data)
+    .subscribe(response => {
+      this.movie = response;
+      console.log(response);
+    })
   }
 
 }

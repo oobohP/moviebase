@@ -1,1 +1,103 @@
-<p>details works!</p>
+<!-- In the future do yourself a favor, don't use semantic UI for this.. -->
+
+<mat-dialog-content>
+  <div class="ui items">
+    <div class="item">
+      <div class="ui large image">
+        <img
+          *ngIf="movie?.poster_path"
+          src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+        />
+        <img *ngIf="!movie?.poster_path" src="https://placehold.it/500x740" />
+      </div>
+      <div class="content">
+        <p class="header">{{ movie?.title }}</p>
+
+        <div class="meta section-padding">
+          <span>Genres</span>
+          <div>
+            <i *ngFor="let genre of movie?.genres" class="ui purple label">
+              {{ genre.name }}
+            </i>
+          </div>
+        </div>
+
+        <div class="meta">
+          <span>Overview</span>
+          <p *ngIf="!movie?.overview">N/A</p>
+        </div>
+
+        <div class="description section-padding">
+          <p>{{ movie?.overview }}</p>
+        </div>
+
+        <div class="meta section-padding">
+          <div>
+            <span>Production Companies</span>
+          </div>
+          <div
+            class="ui label production-company"
+            *ngFor="let company of movie?.production_companies"
+          >
+              {{ company.name }}
+          </div>
+        </div>
+
+        <div class="extra section-padding">
+          Additional Resources
+          <!-- Buttons to imdb and landing page-->
+          <div>
+            <a
+              *ngIf="movie?.imdb_id"
+              href="http://www.imdb.com/title/{{ movie?.imdb_id }}/"
+              tabindex="-1"
+              target="_blank"
+            >
+              <i class="ui purple label">IMDb</i>
+            </a>
+            <a
+              *ngIf="movie?.homepage"
+              href="{{ movie?.homepage }}/"
+              tabindex="-1"
+              target="_blank"
+            >
+              <i class="ui purple label">Landing Page</i>
+            </a>
+          </div>
+
+          <!-- Container for scores and statistics -->
+          <div class="flex-container">
+            <div class="ui purple statistic">
+              <div class="label">
+                <span>Average Score</span>
+              </div>
+              <div class="text value">{{ movie?.vote_average }}</div>
+            </div>
+            <div class="ui purple statistic">
+              <div class="label">
+                <span>Total Votes</span>
+              </div>
+              <div class="text value">{{ movie?.vote_count }}</div>
+            </div>
+            <div class="ui purple statistic">
+              <div class="label">
+                <span>Release Date</span>
+              </div>
+              <div class="text value">{{ movie?.release_date }}</div>
+            </div>
+            <div class="ui purple statistic">
+              <div class="label">
+                <span>Production Cost</span>
+              </div>
+              <div *ngIf="movie?.revenue > 0" class="text value">
+                {{ movie?.revenue | currency }}
+              </div>
+              <div *ngIf="movie?.revenue == 0" class="text value">N/A</div>
+            </div>
+          </div>
+          <!-- End statistics -->
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
