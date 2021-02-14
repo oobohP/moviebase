@@ -2,3 +2,15 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Changing theme of snackbar from Material's default in user-dashboard
+.white-snackbar {
+
+  // Changes color of action button
+  .mat-simple-snackbar-action {
+    color: purple !important;
+  }
+
+  background: white;
+  color: black;
+}
