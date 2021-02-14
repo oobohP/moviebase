@@ -1,3 +1,5 @@
+import { AuthGuard } from './core/services/auth.guard';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -13,6 +15,11 @@ const routes: Routes = [
   {
     path: 'search/:searchQuery',
     component: MovieResultsComponent
+  },
+  {
+    path: 'dashboard',
+    component: UserDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
