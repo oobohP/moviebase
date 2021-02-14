@@ -1,3 +1,4 @@
+import { AuthService } from './../../core/services/auth.service';
 import { SearchStatusService } from './../../core/services/search-status.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,6 +12,7 @@ export class NavbarComponent implements OnInit {
   showSearch: boolean;
 
   constructor(
+    public auth: AuthService,
     private searchStatus: SearchStatusService
   ) { }
 

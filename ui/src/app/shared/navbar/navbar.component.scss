@@ -8,12 +8,17 @@
   margin-bottom: 10px;
 }
 
+.user-avatar {
+  outline: none;
+  border: 0;
+}
+
 // Removes focus outline from vanilla html5
 mat-icon, span:focus {
   outline: none;
   border: 0;
 }
 
-mat-icon, span:hover {
+mat-icon, .user-avatar, span:hover {
   cursor: pointer;
 }
