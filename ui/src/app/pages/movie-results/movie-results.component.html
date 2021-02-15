@@ -23,7 +23,12 @@
   <app-spinner></app-spinner>
 </div>
 
-<div class="ui link four doubling cards" *ngIf="!loading">
+<div class="ui link four doubling cards" *ngIf="!loading"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+
   <!-- Add dialog when user lcicks on certain card -->
   <div class="ui raised fluid card" *ngFor="let movie of movies" (click)="showDetails(movie)">
     <div class="image">

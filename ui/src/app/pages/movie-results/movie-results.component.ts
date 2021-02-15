@@ -35,7 +35,8 @@ export class MovieResultsComponent implements OnInit {
     this.route.params.subscribe(response => {
       this.query = response.searchQuery;
       if(response) {
-        this.searchMovies(this.query, this.page)
+        this.searchMovies(this.query, 1)
+        this.page = 1;
       }
     })
   }
@@ -60,4 +61,17 @@ export class MovieResultsComponent implements OnInit {
       scrollStrategy: new NoopScrollStrategy
     })
   }
+
+  // Infinite Scroll
+  onScroll() {
+    this.page += 1;
+
+    this.searchService.searchMovies(this.query, this.page)
+      .subscribe(response => {
+        if (response) {
+          this.movies = [...this.movies, ...response.results];
+        }
+      })
+  }
+
 }

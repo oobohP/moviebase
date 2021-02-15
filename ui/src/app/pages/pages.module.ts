@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // Pages
 import { HomeComponent } from './home/home.component';
@@ -17,7 +18,8 @@ import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.com
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    InfiniteScrollModule
   ],
   providers: [
   ],
